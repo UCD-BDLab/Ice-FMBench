@@ -1,5 +1,5 @@
-# Ice‑FMBench
-
+# Ice-FMBench: A Foundation Model Benchmark for Sea Ice Type Segmentation
+Ice-FMBench is a benchmark for evaluating the transferability of foundation models for sea ice type segmentation using SAR imagery. It supports a variety of remote sensing foundation models and fine-tuning strategies.
 ## Data Description
 
 **AI4Arctic Sea Ice Challenge Dataset**: 
@@ -22,6 +22,7 @@ For the AI4Arctic Sea Ice Challenge Dataset:
    ```bash
    # Create a directory for the data
    mkdir -p data/AI4Arctic
+   ```
 
     ```bash
    # Download the ready-to-train train dataset
@@ -30,14 +31,19 @@ For the AI4Arctic Sea Ice Challenge Dataset:
    # Download the ready-to-train test dataset
    wget -O data/AI4Arctic/test_data.zip https://data.dtu.dk/ndownloader/articles/21762830/versions/2
     ```
-   # Unzip the downloaded datasets
-   unzip data/AI4Arctic/train_data.zip -d data/AI4Arctic/train/
-   unzip data/AI4Arctic/test_data.zip -d data/AI4Arctic/test/
+    # Unzip the downloaded datasets
+    unzip data/AI4Arctic/train_data.zip -d data/AI4Arctic/train/
+    unzip data/AI4Arctic/test_data.zip -d data/AI4Arctic/test/
 
-   # Remove the zip files to save space
-   rm data/AI4Arctic/train_data.zip
-   rm data/AI4Arctic/test_data.zip
+    # Remove the zip files to save space
+    rm data/AI4Arctic/train_data.zip
+    rm data/AI4Arctic/test_data.zip
 
+## How to run
+    Install Dependencies
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 
 
