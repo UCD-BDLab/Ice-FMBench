@@ -13,39 +13,38 @@ Ice-FMBench is a benchmark for evaluating the transferability of foundation mode
    Citation:
    Buus-Hinkler, Jørgen; Wulf, Tore; Stokholm, Andreas Rønne; Korosov, Anton; Saldo, Roberto; Pedersen, Leif Toudal; et al. (2022). AI4Arctic Sea Ice Challenge Dataset. Technical University of Denmark. Collection. https://doi.org/10.11583/DTU.c.6244065.v2
 
-### Data Acquisition
+## Data Acquisition
 
-For the AI4Arctic Sea Ice Challenge Dataset:
+```bash
+# Create a directory for the data
+mkdir -p data/AI4Arctic
 
-1. Download the raw data using the following script:
+# Download the ready-to-train train dataset
+wget -O data/AI4Arctic/train_data.zip https://data.dtu.dk/ndownloader/articles/21316608/versions/3
 
-   ```bash
-   # Create a directory for the data
-   mkdir -p data/AI4Arctic
-   ```
+# Download the ready-to-train test dataset
+wget -O data/AI4Arctic/test_data.zip https://data.dtu.dk/ndownloader/articles/21762830/versions/2
 
-    ```bash
-   # Download the ready-to-train train dataset
-   wget -O data/AI4Arctic/train_data.zip https://data.dtu.dk/ndownloader/articles/21316608/versions/3
+# Unzip the downloaded datasets
+unzip data/AI4Arctic/train_data.zip -d data/AI4Arctic/train/
+unzip data/AI4Arctic/test_data.zip -d data/AI4Arctic/test/
 
-   # Download the ready-to-train test dataset
-   wget -O data/AI4Arctic/test_data.zip https://data.dtu.dk/ndownloader/articles/21762830/versions/2
-    ```
-    # Unzip the downloaded datasets
-    unzip data/AI4Arctic/train_data.zip -d data/AI4Arctic/train/
-    unzip data/AI4Arctic/test_data.zip -d data/AI4Arctic/test/
-
-    # Remove the zip files to save space
-    rm data/AI4Arctic/train_data.zip
-    rm data/AI4Arctic/test_data.zip
-
+# Remove the zip files to save space
+rm data/AI4Arctic/train_data.zip
+rm data/AI4Arctic/test_data.zip
 ## How to run
     Install Dependencies
     ```bash
     pip install -r requirements.txt
     ```
 
+The main entry point is main.py, which supports multiple models and fine-tuning strategies. Here are the basic usage patterns:
+```bash
+# Basic training with a specific model and strategy
+python main.py --model prithvi_300 --finetuning-strategy full_finetune
 
+# Evaluation only with a checkpoint
+python main.py --model prithvi_100 --finetuning-strategy lora --mode evaluate --checkpoint path/to/model.ckpt
 
 ## Citation
 
