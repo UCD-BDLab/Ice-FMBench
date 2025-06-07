@@ -32,11 +32,12 @@ unzip data/AI4Arctic/test_data.zip -d data/AI4Arctic/test/
 # Remove the zip files to save space
 rm data/AI4Arctic/train_data.zip
 rm data/AI4Arctic/test_data.zip
+```
 ## How to run
-    Install Dependencies
-    ```bash
-    pip install -r requirements.txt
-    ```
+Install Dependencies
+```bash
+pip install -r requirements.txt
+```
 
 The main entry point is main.py, which supports multiple models and fine-tuning strategies. Here are the basic usage patterns:
 ```bash
@@ -45,7 +46,7 @@ python main.py --model prithvi_300 --finetuning-strategy full_finetune
 
 # Evaluation only with a checkpoint
 python main.py --model prithvi_100 --finetuning-strategy lora --mode evaluate --checkpoint path/to/model.ckpt
-
+```
 ## Citation
 
 If you use this code in your research, please cite our paper:
